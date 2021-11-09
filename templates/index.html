@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car price prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Merriweather', serif;
+        }
+
+        .container{
+            width: 1000px;
+            height: 500px;
+            margin: 2% 17% 5% 17%;
+            border-radius: 10px;
+            background-image: url('static/images/cars.gif');
+            background-repeat: no-repeat;
+            background-size: 1000px;
+            box-shadow: 0px 0px 10px rgb(197, 211, 212);
+        }
+
+            .container:hover{
+                /* margin: 1px 0px 0px 1px; */
+                box-shadow: 1px 1px 10px rgb(153, 166, 167);
+            }
+
+        .content{
+            padding: 5%;
+        }
+
+        h3{
+            font-size: 28px;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            text-align: center;
+            padding-bottom: 20px;
+            margin-top: 40px;
+            padding-top: 30px;
+            /* color: rgb(255, 255, 255); */
+            color: black;
+        }
+
+        select, input {
+            background-color: transparent;
+            border: 1px solid rgb(115, 138, 138);
+            border-radius: 5px;
+            color: rgb(80, 89, 97);
+            font-size: medium;
+        }
+
+        .row{
+            display: flex;
+            margin: 10px;
+            padding: 10px 0px 30px 0px;
+            justify-content: space-around;
+        }
+
+        button{
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+            background-color: transparent;
+            box-shadow: 0px 0px 10px rgb(255, 255, 255);
+            border: 1px solid rgb(115, 138, 138);
+        }
+
+        .submit-button{
+            display: flex;
+            justify-content: center;
+        }
+        button:hover{
+            box-shadow: 1px 1px 10px rgb(153, 166, 167);
+        }
+
+        h4{
+            text-align: center;
+            color: white;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Estimate your car price </h3>
+    <div class="container">
+        <div class="content">
+            <div class="form-container">
+                <form action="{{url_for('predict')}}" method="post">
+                    <div class="row">
+                        <div class="input-section">
+                            <label for="Fuel Type"> choose a fuel type : </label>
+                            <select name="fuel_type" id="fuel_type">
+                                <!-- value will go  -->
+                                <option value="Petrol">Petrol</option>
+                                <option value="Disel">Disel</option>
+                                <option value="CNG">CNG</option>
+                            </select>
+                        </div>
+                        <div class="input-section">
+                            <label for="Transmission"> choose a Transmission type : </label>
+                            <select name="transmission" id="transmission">
+                                <option value="Manual">Manual</option>
+                                <option value="Automatic">Automatic</option>
+                            </select>
+                        </div>
+                        <div class="input-section">
+                            <label for="seller_type"> choose a Seller type : </label>
+                            <select name="seller_type" id="seller_type">
+                                <option value="Dealer">Dealer</option>
+                                <option value="Individual">Individual</option>
+                            </select>
+                        </div>
+                        <div class="input-section">
+                            <label for="owners"> choose Number of owners: </label>
+                            <select name="owners" id="owners">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-section">
+                            <label for="kms_driven">Kms Driven :</label>
+                            <input type="number" id="kms_driven" name="kms_driven" placeholder="20000"> 
+                        </div>
+                        <div class="input-section">
+                            <label for="present_price">Present Price in lakhs:</label>
+                            <input id="present_price" name="present_price" placeholder="7.35">
+                        </div>
+                        <div class="input-section">
+                            <label for="Year"> choose a Year : </label>
+                            <select name="year" id="year">
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit">Predict</button>
+                    </div>
+                </form>
+            </div>
+            <div class="prediction">
+                <h4>{{ prediction_value }}</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
