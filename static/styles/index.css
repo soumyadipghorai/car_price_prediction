@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+
+.container{
+    width: 1000px;
+    height: 500px;
+    margin: 2% 17% 5% 17%;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    box-shadow: 0px 0px 10px rgb(197, 211, 212);
+}
+
+    .container:hover{
+        /* margin: 1px 0px 0px 1px; */
+        box-shadow: 1px 1px 10px rgb(153, 166, 167);
+    }
+
+.content{
+    padding: 5%;
+}
+
+h3{
+    font-size: 28px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    padding-top: 30px;
+    /* color: rgb(255, 255, 255); */
+    color: black;
+}
+
+select, input {
+    background-color: transparent;
+    border: 1px solid rgb(115, 138, 138);
+    border-radius: 5px;
+    color: rgb(80, 89, 97);
+    font-size: medium;
+}
+
+.row{
+    display: flex;
+    margin: 10px;
+    padding: 10px 0px 30px 0px;
+    justify-content: space-around;
+}
+
+button{
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    border: 1px solid rgb(115, 138, 138);
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+button:hover{
+    box-shadow: 1px 1px 10px rgb(153, 166, 167);
+}
+
+h4{
+    text-align: center;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
