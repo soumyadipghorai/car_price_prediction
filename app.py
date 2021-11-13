@@ -50,7 +50,6 @@ def predict() :
             return render_template('index.html', prediction_value = "Your car selling price is {}".format(prediction[0]))
 
     else : 
-
         return render_template('index.html')
 
 if __name__ == "__main__" : 
