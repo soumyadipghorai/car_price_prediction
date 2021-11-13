@@ -5,7 +5,7 @@ import pickle
 
 app = Flask(__name__)
 
-model = pickle.load(open('model.PKL','rb'))
+model = pickle.load(open("C:/Users/Lenovo/Desktop/Visual Studio/end to end/car_price_prediction/model.pkl",'rb'))
 
 @app.route('/', methods = ['GET'])
 def index() : 
@@ -41,10 +41,9 @@ def predict() :
         else : 
             fuel_type = 2
 
-        # prediction = model.predict([[year, present_price, kms_driven, fuel_type, seller_type, transmission, owner]])
-        prediction = [0]
+        prediction = model.predict([[year, present_price, kms_driven, fuel_type, seller_type, transmission, owner]])
 
-        if prediction[0] < 0 : 
+        if prediction < 0 : 
             return render_template('index.html', prediction_value = "Sorry you can't sell this car")
         
         else : 
