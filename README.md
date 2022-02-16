@@ -1,6 +1,6 @@
 # Car Price Prediction : 
 
-This a simple car price prediction model that I build for demonstration purpuose to the GDSC members. 
+This a simple car price prediction model that I build for demonstration purpose to the GDSC members. 
 
 I found the dataset on Kaggle, I took a lot of techniques from kaggle notebooks to build the model and deployed the model using flask. 
 
